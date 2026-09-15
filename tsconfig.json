@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+
+    "strict": true,
+
+    "isolatedModules": true,
+    "noEmit": true,
+
+    "allowJs": true,
+    "skipLibCheck": true,
+
+    "types": ["vite/client"]
+  },
+  "include": [
+    "resources/**/*.ts",
+    "resources/**/*.js",
+    "resources/**/*.d.ts"
+  ]
+}
