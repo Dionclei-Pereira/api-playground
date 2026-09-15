@@ -10,7 +10,10 @@
     @vite(['resources/css/app.css'])
 </head>
 <body>
+    <x-header></x-header>
     @yield('content')
+    <x-footer></x-footer>
+    
     @stack('scripts')
 </body>
 </html>
