@@ -1,4 +1,4 @@
-<footer class="fixed-bottom container-fluid d-flex align-items-center flex-column gap-2">
+<footer class="bottom-0 mt-3 container-fluid d-flex align-items-center flex-column gap-2">
     <div>
         <img data-url="{{ $githubUrl }}" id="github"
             src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white"
