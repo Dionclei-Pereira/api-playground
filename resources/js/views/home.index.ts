@@ -4,7 +4,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 const loadFooter = async () => {
     const githubBadge: HTMLImageElement = document.getElementById('github') as HTMLImageElement;
+    const url: string | undefined = githubBadge.dataset.url;
+    if (!url) return;
+    
     githubBadge.addEventListener('click', () => {
-        window.location.href = 'https://github.com/Dionclei-Pereira/api-playground';
+        window.location.href = url;
     });
 }
