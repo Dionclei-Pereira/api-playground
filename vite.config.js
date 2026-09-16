@@ -7,8 +7,12 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/css/app.css',
+                'resources/css/views/home.index.css',
                 'resources/js/app.js',
-                'resources/js/views/home.index.ts'
+                'resources/js/views/home.index.ts',
+                'resources/js/utils/home.api-resolver.ts',
+                'resources/js/utils/home.api-list.ts',
+                'resources/js/components/footer.ts',
             ],
             refresh: true,
             fonts: [

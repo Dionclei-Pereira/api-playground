@@ -6,3 +6,7 @@
     </div>
     <p class="text-center fs-6 fs-md-3 fs-lg-1">© 2026 Dionclei de Souza Pereira. All rights reserved.</p>
 </footer>
+
+@push('scripts')
+    @vite(['resources/js/components/footer.ts'])
+@endpush

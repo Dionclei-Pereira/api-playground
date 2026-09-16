@@ -1,0 +1,6 @@
+
+@media (min-width: 768px) {
+    .h-btn-md {
+        max-height: 43px !important;
+    }
+}
