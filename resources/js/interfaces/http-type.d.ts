@@ -1,1 +1,1 @@
-type HTTPType = 'json';
+type HTTPType = 'json' | 'text';
