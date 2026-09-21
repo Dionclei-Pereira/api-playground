@@ -13,7 +13,7 @@
 
 @push('scripts')
     @vite(['resources/js/views/home.index.ts'])
-    @vite(['resources/js/utils/home.api-resolver.ts'])
+    @vite(['resources/js/utils/home.api-menu.ts'])
 @endpush
 
 @push('styles')

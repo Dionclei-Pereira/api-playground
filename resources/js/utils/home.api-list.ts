@@ -1,4 +1,4 @@
-import { handleClickHomeResolver } from './home.api-resolver';
+import { handleClickHomeResolver } from './home.api-menu';
 
 let apiListPanel: HTMLDivElement | null = null;
 let idCounter = 0;
