@@ -1,7 +1,7 @@
 import { windows } from './home.api-list';
 
 let homeApiPanel: HTMLDivElement | null;
-let current: IHTTPRequest | null = null;
+let current: IWindow | null = null;
 
 document.addEventListener('DOMContentLoaded', () => {
     const el = document.getElementById('main-panel');
@@ -33,7 +33,7 @@ const renderHomePanel = (): void => {
     homeApiPanel.innerHTML = html;
 }
 
-export const handleClickHomeResolver = (request: IHTTPRequest): void => {
+export const handleClickHomeResolver = (request: IWindow): void => {
     current = request;
     renderHomePanel();
 }

@@ -3,7 +3,7 @@ import { handleClickHomeResolver } from "./home.api-resolver";
 let apiListPanel: HTMLDivElement | null;
 let idCounter: number = 0;
 
-export let windows: IHTTPRequest[] = [];
+export let windows: IWindow[] = [];
 
 document.addEventListener('DOMContentLoaded', (): void => {
     const element = document.getElementById('list-panel');
@@ -14,14 +14,23 @@ document.addEventListener('DOMContentLoaded', (): void => {
 });
 
 const addWindow = (): void => {
-    let newWindow: IHTTPRequest = {
-        id: idCounter++,
+    const request: IHTTPRequest = {
         body: '',
         headers: [],
         method: "get",
         type: "json"
     };
-    windows.push(newWindow);
+
+    const response: IHTTPResponse = {
+        body: '',
+        statusCode: 0
+    };
+
+    windows.push({
+        id: idCounter++,
+        request: request,
+        response: response
+    });
 
     renderApiList();
 };
@@ -39,7 +48,7 @@ const renderApiList = (): void => {
 
     windows.forEach(win => {
         let cssClass: string = '';
-        switch (win.method) {
+        switch (win.request.method) {
             case "get":
                 cssClass = 'btn-success';
                 break;
@@ -58,7 +67,7 @@ const renderApiList = (): void => {
         }
         html += `
             <div id=${win.id} class="window btn ${cssClass} flex-shrink-0 h-75 h-btn-md w-md-75 w-50 d-flex justify-content-between align-items-center">
-                ${win.method.toUpperCase()}
+                ${win.request.method.toUpperCase()}
                 <button id="${win.id}" class="btn close-window-btn">X</button>
             </div>
         `
@@ -89,7 +98,7 @@ const renderApiList = (): void => {
     currentWindows.values().forEach(el => {
         if (!(el instanceof HTMLDivElement)) return;
         el.addEventListener('click', () => {
-            const win: IHTTPRequest | undefined = windows.find(cWin => cWin.id = Number(el.id));
+            const win: IWindow | undefined = windows.find(cWin => cWin.id = Number(el.id));
             if (!win) return;
             handleClickHomeResolver(win);
         });
