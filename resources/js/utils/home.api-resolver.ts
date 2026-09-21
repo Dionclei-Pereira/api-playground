@@ -1,7 +1,7 @@
 import { windows } from './home.api-list';
 
 let homeApiPanel: HTMLDivElement | null;
-let current: number | null = null;
+let current: IHTTPRequest | null = null;
 
 document.addEventListener('DOMContentLoaded', () => {
     const el = document.getElementById('main-panel');
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     homeApiPanel = el;
 
     if (windows && windows.length !== 0) {
-        current = windows.at(0)!.id;
+        current = windows.at(0)!;
     }
 
     renderHomePanel();
@@ -27,13 +27,13 @@ const renderHomePanel = (): void => {
     }
 
     const html: string = `
-    
+
     `;
 
     homeApiPanel.innerHTML = html;
 }
 
-export const handleClickHomeResolver = (id: number): void => {
-    current = id;
+export const handleClickHomeResolver = (request: IHTTPRequest): void => {
+    current = request;
     renderHomePanel();
 }

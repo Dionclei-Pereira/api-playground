@@ -88,6 +88,10 @@ const renderApiList = (): void => {
     const currentWindows = document.querySelectorAll('.window');
     currentWindows.values().forEach(el => {
         if (!(el instanceof HTMLDivElement)) return;
-        el.addEventListener('click', () => handleClickHomeResolver(Number(el.id)));
+        el.addEventListener('click', () => {
+            const win: IHTTPRequest | undefined = windows.find(cWin => cWin.id = Number(el.id));
+            if (!win) return;
+            handleClickHomeResolver(win);
+        });
     });
 };
