@@ -1,13 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <main class="w-100 h-75 d-flex flex-column flex-md-row">
-        <div id="list-panel" class="overflow-scroll w-100 w-md-25 h-10 h-md-100 bg-danger d-flex flex-row 
-            flex-md-column align-items-center align-items-md-center gap-2 justify-content-start px-3 px-md-0 py-md-3">
-            
+    <main class="w-100 d-flex flex-column flex-md-row">
+        <div id="list-panel" class="overflow-auto w-100 w-md-25 d-flex flex-row 
+            flex-md-column align-items-center gap-2 justify-content-start px-3 py-2 py-md-3"
+        >
         </div>
-        <div id="main-panel" class="w-100 w-md-75 h-100 d-flex flex-md-row flex-column">
-
+        <div id="main-panel" class="w-100 w-md-75 d-flex flex-column">
         </div>
     </main>
 @endsection
