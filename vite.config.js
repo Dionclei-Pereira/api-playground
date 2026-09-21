@@ -11,7 +11,6 @@ export default defineConfig({
                 'resources/js/app.js',
                 'resources/js/views/home.index.ts',
                 'resources/js/utils/home.api-resolver.ts',
-                'resources/js/utils/home.api-list.ts',
                 'resources/js/components/footer.ts',
             ],
             refresh: true,
