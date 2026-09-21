@@ -23,7 +23,7 @@ export const send = async (request: IHTTPRequest): Promise<IHTTPResponse> => {
 
     const contentType = fetchResponse.headers.get("content-type") || "";
     let bodyResponse: string = '';
-    if (contentType.includes("application/json")) {
+    if (contentType.includes("json")) {
         bodyResponse = JSON.stringify(await fetchResponse.json());
     } else if (contentType.includes("text/") || contentType.includes("application/xml")) {
         bodyResponse = await fetchResponse.text();
