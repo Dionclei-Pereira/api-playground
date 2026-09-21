@@ -1,11 +1,14 @@
-let panel: HTMLDivElement | null;
-let windows: IHTTPRequest[] = [];
+import { handleClickHomeResolver } from "./home.api-resolver";
+
+let apiListPanel: HTMLDivElement | null;
 let idCounter: number = 0;
+
+export let windows: IHTTPRequest[] = [];
 
 document.addEventListener('DOMContentLoaded', (): void => {
     const element = document.getElementById('list-panel');
     if (!(element instanceof HTMLDivElement)) return;
-    panel = element;
+    apiListPanel = element;
 
     renderApiList();
 });
@@ -30,7 +33,7 @@ const removeWindow = (id: string): void => {
 }
 
 const renderApiList = (): void => {
-    if (!panel) return;
+    if (!apiListPanel) return;
 
     let html: string = '';
 
@@ -54,7 +57,7 @@ const renderApiList = (): void => {
                 break;
         }
         html += `
-            <div class="btn ${cssClass} flex-shrink-0 h-75 h-btn-md w-md-75 w-50 d-flex justify-content-between align-items-center">
+            <div id=${win.id} class="window btn ${cssClass} flex-shrink-0 h-75 h-btn-md w-md-75 w-50 d-flex justify-content-between align-items-center">
                 ${win.method.toUpperCase()}
                 <button id="${win.id}" class="btn close-window-btn">X</button>
             </div>
@@ -67,7 +70,7 @@ const renderApiList = (): void => {
         </button>
     `
     
-    panel.innerHTML = html;
+    apiListPanel.innerHTML = html;
 
     const addBtn = document.getElementById('add-window-btn');
     if (!(addBtn instanceof HTMLButtonElement)) return;
@@ -80,5 +83,11 @@ const renderApiList = (): void => {
         if (!(btn instanceof HTMLButtonElement)) return;
         const id: string = btn.id;
         btn.addEventListener('click', () => removeWindow(id));
+    });
+
+    const currentWindows = document.querySelectorAll('.window');
+    currentWindows.values().forEach(el => {
+        if (!(el instanceof HTMLDivElement)) return;
+        el.addEventListener('click', () => handleClickHomeResolver(Number(el.id)));
     });
 };
