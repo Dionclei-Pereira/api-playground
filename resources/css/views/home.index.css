@@ -4,3 +4,7 @@
         max-height: 43px !important;
     }
 }
+
+main {
+    min-height: 500px !important;
+}

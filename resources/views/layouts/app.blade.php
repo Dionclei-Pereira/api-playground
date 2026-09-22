@@ -17,12 +17,11 @@
     <!-- Scripts -->
     @yield('head')
     @stack('styles')
-    @vite(['resources/css/app.css'])
-    @vite(['resources/sass/app.scss'])
+    @vite(['resources/css/app.css', 'resources/sass/app.scss'])
 </head>
 
 <body>
-    <div id="app">
+    <div id="app" class="d-flex flex-column min-vh-100">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">

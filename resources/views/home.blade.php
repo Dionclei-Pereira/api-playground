@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <main class="w-100 d-flex flex-column flex-md-row">
+    <main class="w-100 d-flex flex-column flex-md-row flex-grow-1">
         <div id="list-panel" class="overflow-auto w-100 w-md-25 d-flex flex-row 
             flex-md-column align-items-center gap-2 justify-content-start px-3 py-2 py-md-3"
         >
@@ -12,8 +12,7 @@
 @endsection
 
 @push('scripts')
-    @vite(['resources/js/views/home.index.ts'])
-    @vite(['resources/js/utils/home.api-menu.ts'])
+    @vite(['resources/js/views/home.index.ts', 'resources/js/utils/home.api-menu.ts'])
 @endpush
 
 @push('styles')
