@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', (): void => {
 const addWindow = (): IWindow => {
     const request: IHTTPRequest = {
         body: '',
+        execution: 'proxy',
         headers: [],
         method: 'get',
         type: 'json',
@@ -40,6 +41,8 @@ const addWindow = (): IWindow => {
     idCounter++;
 
     renderApiList();
+
+    handleClickHomeResolver(win);
 
     return win;
 };

@@ -4,4 +4,5 @@ interface IHTTPRequest {
     url: string;
     body: string;
     type: HTTPType;
+    execution: 'local' | 'proxy';
 }

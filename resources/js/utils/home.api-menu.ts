@@ -45,6 +45,18 @@ const setupHomePanelEvents = (): void => {
                 break;
             }
 
+            case 'request-execution': {
+                current = updateWindow({
+                    ...current,
+                    request: {
+                        ...current.request,
+                        execution: target.value as 'local' | 'proxy',
+                    },
+                });
+
+                break;
+            }
+
             case 'request-type': {
                 console.log('CHANGE:', target.value);
 
@@ -372,6 +384,27 @@ const renderHomePanel = (): void => {
                                 placeholder="Request URL"
                                 value="${escapeHtml(request.url ?? '')}"
                             >
+
+                            <span class="align-self-center fw-semibold small">Modo:</span>
+
+                            <select
+                                id="request-execution"
+                                class="form-select"
+                                style="max-width: 130px;"
+                            >
+                                <option
+                                    value="proxy"
+                                    ${request.execution === 'proxy' ? 'selected' : ''}
+                                >
+                                    Proxy
+                                </option>
+                                <option
+                                    value="local"
+                                    ${request.execution === 'local' ? 'selected' : ''}
+                                >
+                                    Local
+                                </option>
+                            </select>
 
                             <button
                                 id="send-request-btn"
